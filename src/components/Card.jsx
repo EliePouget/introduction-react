@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Card({ title, children, ...props }) {
+function Card({ title, className, children, ...props }) {
   return (
-    <article className="card">
+    <article className={"card "+ className}>
       <header className="card__header header__title">{title}</header>
       <section className="card__main">{children}</section>
     </article>    
@@ -11,11 +11,13 @@ function Card({ title, children, ...props }) {
 }
 Card.defaultProps = {
     title: 'Title',
-    children: 'Content'
+    children: 'Content',
+    className: 'foldable'
 };
 Card.propTypes = {
     children: PropTypes.node,
-    title: PropTypes.node
+    title: PropTypes.node,
+    className: PropTypes.node
 };
 
 export default Card;
