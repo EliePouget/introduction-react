@@ -1,13 +1,13 @@
 import React from "react";
 
-function Card({ title='Title', ...props }) {
-    const { value, onChange } = props;
+function Card(props) {
   return (
     <article className="card">
-      <header className="card__header header__title">{title}</header>
+      <header className="card__header header__title">{props.children}</header>
       <section className="card__main">Content</section>
     </article>    
   );
 }
+
 
 export default Card;
