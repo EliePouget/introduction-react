@@ -9,10 +9,10 @@ function App() {
             </header>
             <main className="app__main">
                 <div class="cards">
-                    <Card value="Titre 1"/>
-                    <Card value="Titre 2"/>
-                    <Card value="Titre 3"/>
-                    <Card value="Titre 4"/>
+                    <Card title="Titre 1"/>
+                    <Card title="Titre 2"/>
+                    <Card title="Titre 3"/>
+                    <Card/>
                 </div>
             </main>
             <footer className="app__footer footer">footer</footer>
