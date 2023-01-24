@@ -1,10 +1,24 @@
 import PropTypes from "prop-types";
 import Card from "./Card.jsx";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function FoldableCard({title, opened, children, ...props}){
     let className = 'foldable'
-    if (opened) className = 'shown'
-    return (<Card title={title} className={className}>{opened && children}</Card>);
+    let titleIcon = (
+        <>
+            {title}
+            <FontAwesomeIcon icon="fa-solid fa-circle-plus" />
+        </>
+    );
+    if (opened){
+        className = 'shown';
+        titleIcon = (
+            <>
+                {title}
+                <FontAwesomeIcon icon="fa-solid fa-circle-minus" />
+            </>
+        );}
+    return (<Card title={titleIcon} className={className}>{opened && children}</Card>);
 }
 FoldableCard.defaultProps = {
     title: 'Title',
