@@ -9,8 +9,8 @@ function FoldableCard({title, opened, children, ...props}){
     let titleIcon = (
       <>
           {title}
-          {opened ? <FontAwesomeIcon icon="fa-solid fa-circle-minus" />
-            : <FontAwesomeIcon icon="fa-solid fa-circle-plus" />}
+          {opened ? <FontAwesomeIcon className={'foldable-icon'} icon="fa-solid fa-circle-minus" />
+            : <FontAwesomeIcon className={'foldable-icon'} icon="fa-solid fa-circle-plus" />}
       </>
     );
     return (<Card title={titleIcon} className={opened ? 'foldable shown' : 'foldable'}>{opened && children}</Card>);
