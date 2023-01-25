@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import Card from "./Card.jsx";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function FoldableCard({title, opened, children, ...props}){
-
-
     let titleIcon = (
       <>
           {title}
