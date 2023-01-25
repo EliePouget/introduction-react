@@ -6,20 +6,16 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    "prettier",
+  ],
+  overrides: [
   ],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   plugins: [
     'react',
-    "prettier",
   ],
   rules: {
-    "prettier/prettier": ["error"],
   },
 };
