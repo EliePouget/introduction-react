@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FoldableCard from "./FoldableCard.jsx";
 
 
-function Card({ title, className, children, ...props }) {
-  const clickHandler = () => {
-    console.log("Une fonction nommée !")
-  }
+function Card({ onClick, title, className, children, ...props }) {
   return (
-    <button onClick={clickHandler} className={`card ${className}`}>
+    <button onClick={onClick} className={`card ${className}`}>
       <header className="card__header header__title">{title}</header>
       <section className="card__main">{children}</section>
     </button>
