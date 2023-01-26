@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function Card({
-  title, className, children, ...props }) {
+function Card({ title, className, children, ...props }) {
+  const clickHandler = () => {
+    console.log("Une fonction nommée !")
+  }
   return (
-    <article className={`card ${className}`}>
+    <button onClick={clickHandler} className={`card ${className}`}>
       <header className="card__header header__title">{title}</header>
       <section className="card__main">{children}</section>
-    </article>
+    </button>
   );
 }
 Card.defaultProps = {
