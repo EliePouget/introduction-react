@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import Card from "/src/components/Card.jsx";
+import useShowable from "../hooks/useShowable.jsx";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from "react";
-import useShowable from "../hooks/useShowable.jsx";
 
-function FoldableCard({title, opened, children, ...props}){
+
+function FoldableCard({title, opened, onToggleOpened, children, ...props}){
     const showable = useShowable(opened)
     let titleIcon = (
       <>
@@ -18,6 +18,8 @@ function FoldableCard({title, opened, children, ...props}){
     );
     return (<Card onClick={showable.toggleShown} title={titleIcon} className={showable.className}>{showable.isShown && children}</Card>);
 }
+
+
 FoldableCard.defaultProps = {
     title: 'Title',
     children: 'Content',

@@ -11,7 +11,7 @@ function App() {
         <h1 className="header__title">Introduction to React</h1>
       </header>
       <main className="app__main">
-        <Cards className="cards" cardsData={cardsData}/>
+        <Cards className="cards" cardsData={cardsData} openedIndex={2}/>
       </main>
       <footer className="app__footer footer">footer</footer>
     </div>
