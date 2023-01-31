@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes, { node } from "prop-types";
+import FoldableCard from "./FoldableCard.jsx";
+import foldableCard from "./FoldableCard.jsx";
 
-function Cards({ className, children, ...props }) {
+function Cards({ className, cardsData, ...props }) {
   return (
     <div className={className}>
-      {children}
+      {cardsData.map(obj =>
+        <FoldableCard title={obj.title} opened={true}>{obj.content}</FoldableCard>
+      )}
     </div>
   );
 }
 Cards.defaultProps = {
-  className : ''
+  className : '',
+  cardsData : []
 };
 Cards.propTypes = {
-  className : PropTypes.node
+  className : PropTypes.node,
+  cardsData: PropTypes.arrayOf + PropTypes.shape,
 };
 
 export default Cards;
