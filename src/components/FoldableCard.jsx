@@ -16,7 +16,7 @@ function FoldableCard({title, opened, children, ...props}){
             : <FontAwesomeIcon className={'foldable-icon'} icon="fa-solid fa-circle-plus" />}
       </>
     );
-    return (<Card onClick={() => setIsShown(!opened)} title={titleIcon} className={opened ? 'foldable shown' : 'foldable'}>{opened && children}</Card>);
+    return (<Card onClick={() => setIsShown(!isShown)} title={titleIcon} className={isShown ? 'foldable shown' : 'foldable'}>{isShown && children}</Card>);
 }
 FoldableCard.defaultProps = {
     title: 'Title',
