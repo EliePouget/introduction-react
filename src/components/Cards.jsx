@@ -1,30 +1,38 @@
-import React, { useState } from "react";
-import PropTypes, { node } from "prop-types";
-import FoldableCard from "./FoldableCard.jsx";
-import useShowable from "../hooks/useShowable.jsx";
+import React, { useState } from 'react';
+import PropTypes, { node } from 'prop-types';
+import FoldableCard from './FoldableCard';
+import useShowable from '../hooks/useShowable';
 
-function Cards({ openedIndex, className, cardsData, ...props }) {
-  const [isOpenedIndex, setOpenedIndex] = useState(openedIndex)
+function Cards({
+  className, cardsData, ...props
+}) {
+  const [openedIndex, setOpenedIndex] = useState(null);
   return (
     <div className={className}>
-      {cardsData.map(obj =>
+      {cardsData.map((obj, indice) => (
         <FoldableCard
+          key={obj.id}
           title={obj.title}
-          opened={obj.id === isOpenedIndex}
-          onToggleOpened={(useShowable(obj.id === isOpenedIndex).toggleShown)}>{obj.content}</FoldableCard>
-      )}
+          opened={indice === openedIndex}
+          onToggleOpened={(isShown) => {
+            if (isShown) {
+              setOpenedIndex(indice);
+            }console.log(openedIndex);
+          }}
+        >
+          {obj.content}
+        </FoldableCard>
+      ))}
     </div>
   );
 }
 Cards.defaultProps = {
-  className : '',
-  cardsData : [],
-  openedIndex : null,
+  className: '',
+  cardsData: [],
 };
 Cards.propTypes = {
-  className : PropTypes.node,
+  className: PropTypes.node,
   cardsData: PropTypes.arrayOf + PropTypes.shape,
-  openedIndex : PropTypes.number,
 };
 
 export default Cards;
