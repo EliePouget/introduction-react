@@ -32,11 +32,13 @@ FoldableCard.defaultProps = {
   title: 'Title',
   children: 'Content',
   opened: false,
+  onToggleOpened: () => {},
 };
 FoldableCard.propTypes = {
   children: PropTypes.node,
   title: PropTypes.node,
   opened: PropTypes.bool,
+  onToggleOpened: PropTypes.func,
 };
 
 export default FoldableCard;
