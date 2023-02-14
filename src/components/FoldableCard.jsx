@@ -13,7 +13,7 @@ function FoldableCard({
 }) {
   const showable = useShowable(opened);
   useEffect(() => {
-    showable.toggleShown();
+    showable.setIsShown(opened);
   }, [opened]);
   const titleIcon = (
     <>
@@ -22,7 +22,7 @@ function FoldableCard({
     </>
   );
   return (
-    <Card onClick={() => {showable.toggleShown(); onToggleOpened(showable.isShown);}} title={titleIcon} className={showable.className}>
+    <Card onClick={() => {showable.toggleShown(); onToggleOpened(!showable.isShown);}} title={titleIcon} className={showable.className}>
       {showable.isShown && children}
     </Card>
   );

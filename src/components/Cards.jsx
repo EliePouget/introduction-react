@@ -7,6 +7,7 @@ function Cards({
   className, cardsData, ...props
 }) {
   const [openedIndex, setOpenedIndex] = useState(null);
+  console.log(openedIndex);
   return (
     <div className={className}>
       {cardsData.map((obj, indice) => (
@@ -17,7 +18,7 @@ function Cards({
           onToggleOpened={(isShown) => {
             if (isShown) {
               setOpenedIndex(indice);
-            }console.log(openedIndex);
+            }
           }}
         >
           {obj.content}
